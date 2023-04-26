@@ -1,0 +1,40 @@
+.time-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 480px;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #66f8f0;
+}
+
+.time-box button:nth-of-type(1) {
+  order: 0;
+}
+
+.time-box button:nth-of-type(2) {
+  order: 2;
+}
+
+.time-content {
+  display: none;
+  order: 1;
+}
+
+.time-content.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.time-content > span {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 15px;
+  background-color: #66f8f0;
+  color: #fff;
+  border-radius: 20px;
+}

@@ -1,0 +1,112 @@
+.calendar-box {
+  order: 1;
+  color: #d2d2d2;
+  width: 520px;
+  border: 2px solid #66f8f0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px 30px;
+}
+
+.calendar__header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.calendar__header__title span:nth-of-type(1) {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.calendar__header__title span:nth-of-type(2) {
+  font-size: 18px;
+}
+
+.calendar__content {
+  display: flex;
+  position: relative;
+  padding: 0 30px;
+}
+
+.calendar__btn--left,
+.calendar__btn--right {
+  display: none;
+  color: #66f8f0;
+  position: absolute;
+  top: 50%;
+}
+
+.calendar__btn--left {
+  left: 15px;
+}
+
+.calendar__btn--right {
+  right: 15px;
+}
+
+.calendar-box:hover .calendar__btn--left,
+.calendar-box:hover .calendar__btn--right {
+  display: block;
+}
+
+.calendar__table--weeks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  padding: 10px 30px;
+  gap: 10px;
+}
+
+.calendar__table--dates {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  grid-template-rows: repeat(6, 50px);
+  justify-items: center;
+  gap: 10px;
+  padding: 10px 30px;
+}
+
+.calendar__table--dates__item {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar__table--dates__item:hover {
+  color: #aaaaaa;
+}
+
+.calendar__table--weeks .calendar__table--weeks__item:nth-of-type(1),
+.calendar__table--dates__item.holiday {
+  color: #ffbebe;
+}
+
+.calendar__table--dates__item.holiday:hover {
+  color: #ff5a5a;
+}
+
+.calendar__table--weeks .calendar__table--weeks__item:nth-of-type(7),
+.calendar__table--dates__item.sub-holiday {
+  color: #78eaff;
+}
+
+.calendar__table--dates__item.sub-holiday:hover {
+  color: #00cdff;
+}
+
+.calendar__table--dates__item.active {
+  background-color: #66f8f0;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
