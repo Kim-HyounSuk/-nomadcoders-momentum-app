@@ -1,4 +1,5 @@
 import Home from "./pages/Home.js";
+import Schedule from "./pages/Schedule.js";
 
 const $body = document.querySelector("body");
 
@@ -26,13 +27,32 @@ const App = () => {
 
   const render = () => {
     const $app = document.querySelector("#app");
+    const navItems = document.querySelectorAll("nav li");
+
     const home = Home($app);
     home();
+
+    navItems[0].addEventListener("click", () => {
+      superEventHandler.onClickHome();
+    });
+    navItems[1].addEventListener("click", () => {
+      superEventHandler.onClickScheduler();
+    });
   };
 
   const superEventHandler = {
-    onClickHome: () => {},
-    onClickCalendar: () => {},
+    onClickHome: () => {
+      const $app = document.querySelector("#app");
+      $app.innerHTML = "";
+      const home = Home($app);
+      home();
+    },
+    onClickScheduler: () => {
+      const $app = document.querySelector("#app");
+      $app.innerHTML = "";
+      const schedule = Schedule($app);
+      schedule();
+    },
   };
 
   return constructor;

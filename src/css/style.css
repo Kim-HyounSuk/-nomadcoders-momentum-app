@@ -10,9 +10,11 @@
 @import "./components/Login.css";
 @import "./components/Topbar.css";
 @import "./components/Quotes.css";
+@import "./components/Wether.css";
 
 /* Pages */
-@import "./components/Home.css";
+@import "./pages/Home.css";
+@import "./pages/Schedule.css";
 
 * {
   box-sizing: border-box;

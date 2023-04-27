@@ -1,9 +1,8 @@
 import Quotes from "../modules/Quotes.js";
-import Time from "../modules/Time.js";
+import Scheduler from "../modules/Scheduler.js";
 import Topbar from "../modules/Topbar.js";
-import Wether from "../modules/Wether.js";
 
-const Home = ($container) => {
+const Schedule = ($container) => {
   const constructor = () => {
     template();
     render();
@@ -22,10 +21,10 @@ const Home = ($container) => {
 
     const topbar = Topbar(articles[0]);
     topbar();
-    const wether = Wether(articles[1]);
-    wether();
-    const time = Time(articles[1]);
-    time();
+
+    const scheduler = Scheduler(articles[1]);
+    scheduler();
+
     const quotes = Quotes(articles[2]);
     quotes();
   };
@@ -33,4 +32,4 @@ const Home = ($container) => {
   return constructor;
 };
 
-export default Home;
+export default Schedule;

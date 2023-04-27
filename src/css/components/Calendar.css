@@ -2,7 +2,7 @@
   order: 1;
   color: #d2d2d2;
   width: 520px;
-  border: 2px solid #66f8f0;
+  border: 2px solid #969696;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -38,7 +38,7 @@
 .calendar__btn--left,
 .calendar__btn--right {
   display: none;
-  color: #66f8f0;
+  color: #969696;
   position: absolute;
   top: 50%;
 }
@@ -105,7 +105,7 @@
 }
 
 .calendar__table--dates__item.active {
-  background-color: #66f8f0;
+  background-color: #969696;
   color: #fff;
   font-weight: 600;
   border-radius: 10px;
