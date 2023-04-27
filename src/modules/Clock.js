@@ -58,7 +58,7 @@ const Clock = ($container) => {
     const minutes = now.getMinutes().toString().padStart(2, "0");
     const hours = now.getHours();
 
-    digitalClockItems[0].innerText = `${hours > 12 ? "PM" : "AM"}`;
+    digitalClockItems[0].innerText = `${hours >= 12 ? "PM" : "AM"}`;
     digitalClockItems[1].innerText = `${
       hours > 13
         ? (hours - 12).toString().padStart(2, "0")

@@ -1,0 +1,33 @@
+.quotes-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 90%;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.quotes-box > i,
+.quotes-box > span {
+  padding: 10px;
+  background-color: #969696;
+  border-radius: 15px;
+}
+
+.quotes-box > i {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.quotes-box > i:hover {
+  color: #000;
+}

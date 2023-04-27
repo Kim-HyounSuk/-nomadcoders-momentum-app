@@ -11,10 +11,10 @@ const Time = ($container) => {
     const $timeBox = document.createElement("section");
     $timeBox.classList.add("time-box");
     $timeBox.innerHTML = `
-      <button>
+      <button class='time-btn'>
         <i class="fas fa-chevron-left fa-lg"></i>
       </button>
-      <button>
+      <button class='time-btn'>
         <i class="fas fa-chevron-right fa-lg"></i>
       </button>
       <div class='time-content active'>
@@ -35,6 +35,20 @@ const Time = ($container) => {
 
     clock();
     pomodoro();
+
+    const timeBtns = $container.querySelectorAll(".time-btn");
+    timeBtns.forEach((btn) => {
+      btn.addEventListener("click", onClickBtn);
+    });
+  };
+
+  const onClickBtn = () => {
+    const timeContents = $container.querySelectorAll(".time-content");
+    timeContents.forEach((content) => {
+      content.classList.contains("active")
+        ? content.classList.remove("active")
+        : content.classList.add("active");
+    });
   };
 
   return constructor;

@@ -1,18 +1,41 @@
-import Clock from "./modules/Clock.js";
-import Pomodoro from "./modules/Pomodoro.js";
-import Scheduler from "./modules/Scheduler.js";
-import Time from "./modules/Time.js";
+import Home from "./pages/Home.js";
 
-const $app = document.getElementById("app");
+const $body = document.querySelector("body");
 
-// const scheduler = Scheduler($app);
-// scheduler();
+const App = () => {
+  const constructor = () => {
+    template();
+    render();
+  };
 
-// const clock = Clock($app);
-// clock();
+  const template = () => {
+    const $nav = document.createElement("nav");
+    $nav.innerHTML = `
+      <ul>
+        <li>Home</li>
+        <li>Scheduler</li>
+      </ul>
+    `;
 
-// const pomodoro = Pomodoro($app);
-// pomodoro();
+    const $app = document.createElement("div");
+    $app.setAttribute("id", "app");
 
-const time = Time($app);
-time();
+    $body.appendChild($nav);
+    $body.appendChild($app);
+  };
+
+  const render = () => {
+    const $app = document.querySelector("#app");
+    const home = Home($app);
+    home();
+  };
+
+  const superEventHandler = {
+    onClickHome: () => {},
+    onClickCalendar: () => {},
+  };
+
+  return constructor;
+};
+
+export default App;
