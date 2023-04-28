@@ -1,4 +1,6 @@
-const API_KEY = "46381a32c2fba56e243c32fffcbcd5da";
+import { config } from "./apikey.js";
+
+const API_KEY = config.apikey;
 export const CALCUL_CELSIUS = 273.15;
 
 let weatherData = null;
