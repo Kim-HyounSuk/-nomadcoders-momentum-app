@@ -1,7 +1,7 @@
 import Quotes from "../modules/Quotes.js";
 import Time from "../modules/Time.js";
 import Topbar from "../modules/Topbar.js";
-import Wether from "../modules/Wether.js";
+import Weather from "../modules/Weather.js";
 
 const Home = ($container) => {
   const constructor = () => {
@@ -22,8 +22,8 @@ const Home = ($container) => {
 
     const topbar = Topbar(articles[0]);
     topbar();
-    const wether = Wether(articles[1]);
-    wether();
+    const weather = Weather(articles[1]);
+    weather();
     const time = Time(articles[1]);
     time();
     const quotes = Quotes(articles[2]);

@@ -1,5 +1,6 @@
 import Quotes from "../modules/Quotes.js";
 import Scheduler from "../modules/Scheduler.js";
+import Today from "../modules/Today.js";
 import Topbar from "../modules/Topbar.js";
 
 const Schedule = ($container) => {
@@ -21,6 +22,9 @@ const Schedule = ($container) => {
 
     const topbar = Topbar(articles[0]);
     topbar();
+
+    const today = Today(articles[1]);
+    today();
 
     const scheduler = Scheduler(articles[1]);
     scheduler();

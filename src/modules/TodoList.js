@@ -26,7 +26,10 @@ const TodoList = ($container, $activeItem) => {
 
     $todoListBox.innerHTML = `
       <div class='todo-title'>
-        <span></span>
+        <div>
+          <span></span>
+          <i class="fas fa-trash todoList__btn--reset"></i>
+        </div>
         <span></span>
       </div>
       <div class='todo-form'>
@@ -70,7 +73,7 @@ const TodoList = ($container, $activeItem) => {
           loadTodoList += `
           <li id='${todo.id}' class='todo-list__item'>
             <span class='todo-list__item--content'>${todo.text}</span>
-            <i class="fas fa-minus todo-list__item__btn"></i>
+            <span class='todo-list__item__btn'><i class="fas fa-minus"></i></span>
           </li>
         `;
         } else {
@@ -97,6 +100,11 @@ const TodoList = ($container, $activeItem) => {
       item.addEventListener("click", (e) => {
         superEventHandler.onToggleState(e);
       });
+    });
+
+    const clearBtn = $container.querySelector(".todoList__btn--reset");
+    clearBtn.addEventListener("click", () => {
+      superEventHandler.onClickClearBtn();
     });
   };
 
@@ -127,12 +135,16 @@ const TodoList = ($container, $activeItem) => {
     },
     onClickRemove: (e) => {
       const todoItems = $container.querySelectorAll(".todo-list__item");
+      const target =
+        e.target.tagName === "DIV"
+          ? e.target.parentNode
+          : e.target.parentNode.parentNode;
       todoItems.forEach((item) => {
-        if (item.id === e.target.parentNode.id) {
+        if (item.id === target.id) {
           item.remove();
           const renewal = JSON.parse(
             localStorage.getItem(`${activeDate}`)
-          ).filter((item) => item.id !== parseInt(e.target.parentNode.id));
+          ).filter((item) => item.id !== parseInt(target.id));
           localStorage.setItem(`${activeDate}`, JSON.stringify(renewal));
         }
       });
@@ -144,14 +156,22 @@ const TodoList = ($container, $activeItem) => {
         else e.target.classList.add("done");
         const renewal = JSON.parse(localStorage.getItem(`${activeDate}`)).map(
           (item) => {
-            if (item.id === parseInt(e.target.parentNode.id)) {
+            if (item.id.toString() === e.target.parentNode.id) {
               if (item.state === "doing") return { ...item, state: "done" };
               else return { ...item, state: "doing" };
+            } else {
+              return { ...item };
             }
           }
         );
         localStorage.setItem(`${activeDate}`, JSON.stringify(renewal));
       }
+    },
+    onClickClearBtn: () => {
+      const saved = localStorage.getItem("username");
+      localStorage.clear();
+      localStorage.setItem("username", `${saved}`);
+      render();
     },
   };
 

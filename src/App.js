@@ -13,8 +13,9 @@ const App = () => {
     const $nav = document.createElement("nav");
     $nav.innerHTML = `
       <ul>
-        <li>Home</li>
-        <li>Scheduler</li>
+        <li><i class="fas fa-home"></i></li>
+        <li><i class="fas fa-calendar-week"></i></li>
+        <li><i class="fas fa-power-off"></i></li>
       </ul>
     `;
 
@@ -38,6 +39,9 @@ const App = () => {
     navItems[1].addEventListener("click", () => {
       superEventHandler.onClickScheduler();
     });
+    navItems[2].addEventListener("click", () => {
+      superEventHandler.onClickReset();
+    });
   };
 
   const superEventHandler = {
@@ -52,6 +56,10 @@ const App = () => {
       $app.innerHTML = "";
       const schedule = Schedule($app);
       schedule();
+    },
+    onClickReset: () => {
+      localStorage.removeItem("username");
+      location.reload();
     },
   };
 

@@ -11,16 +11,18 @@
   padding: 15px;
   border-radius: 15px;
   box-shadow: 3px 3px 3px 5px rgba(0, 0, 0, 0.2);
-  color: #fff;
   font-size: 18px;
   font-weight: 600;
+  color: #969696;
 }
 
 .quotes-box > i,
 .quotes-box > span {
   padding: 10px;
-  background-color: #969696;
+  background-color: #f8f8f8;
+  border: 2px solid #969696;
   border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) inset;
 }
 
 .quotes-box > i {

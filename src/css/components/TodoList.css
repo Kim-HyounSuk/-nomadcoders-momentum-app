@@ -17,8 +17,23 @@
   font-size: 32px;
 }
 
+.todo-title > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .todo-title span:nth-of-type(1) {
   margin-bottom: 5px;
+}
+
+.todoList__btn--reset {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.todoList__btn--reset:hover {
+  color: red;
 }
 
 .todo-form form {
@@ -41,6 +56,10 @@
   top: 40%;
 }
 
+.todo-form button:hover {
+  color: #464646;
+}
+
 .todo-list__item {
   display: flex;
   justify-content: space-between;
@@ -49,10 +68,25 @@
   font-weight: 600;
 }
 
+.todo-list__item--content,
 .todo-list__item__btn {
   cursor: pointer;
 }
 
+.todo-list__item__btn {
+  display: none;
+}
+
+.todo-list__item:hover .todo-list__item__btn {
+  display: inline;
+}
+
+.todo-list__item__btn:hover {
+  color: tomato;
+}
+
 .todo-list__item--content.done {
   text-decoration: line-through;
+  font-style: italic;
+  opacity: 0.5;
 }
