@@ -74,7 +74,7 @@ const Calendar = ($container) => {
     /* 날짜 Column */
     const calendarDates = $container.querySelector(".calendar__table--dates");
     const firstday = new Date(year, month, 1).getDay();
-    const lastday = new Date(year, month - 1, 0).getDate();
+    const lastday = new Date(year, month + 1, 0).getDate();
     let innerDates = "";
 
     for (let i = 1; i <= firstday; i++) {
@@ -99,9 +99,10 @@ const Calendar = ($container) => {
     datesItemList.forEach((ele) => {
       const today = new Date();
       const day = new Date(ele.dataset.id).getDay();
+
       if (day === 0) ele.classList.add("holiday");
-      else if (day === 6) ele.classList.add("sub-holiday");
-      else if (
+      if (day === 6) ele.classList.add("sub-holiday");
+      if (
         `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}` ===
         ele.dataset.id
       ) {
