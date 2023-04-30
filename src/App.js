@@ -30,7 +30,6 @@ const App = () => {
     const $app = document.querySelector("#app");
     const navItems = document.querySelectorAll("nav li");
     const isvisitedPage = localStorage.getItem("visited");
-    console.log(isvisitedPage);
 
     if (isvisitedPage) {
       if (isvisitedPage === "home") {
