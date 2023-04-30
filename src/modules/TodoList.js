@@ -80,7 +80,9 @@ const TodoList = ($container, $activeItem) => {
           loadTodoList += `
           <li id='${todo.id}' class='todo-list__item'>
             <span class='todo-list__item--content done'>${todo.text}</span>
-            <i class="fas fa-minus todo-list__item__btn"></i>
+            <span class='todo-list__item__btn'>
+              <i class="fas fa-minus"></i>
+            </span>
           </li>
         `;
         }
