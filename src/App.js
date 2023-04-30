@@ -29,9 +29,21 @@ const App = () => {
   const render = () => {
     const $app = document.querySelector("#app");
     const navItems = document.querySelectorAll("nav li");
+    const isvisitedPage = localStorage.getItem("visited");
+    console.log(isvisitedPage);
 
-    const home = Home($app);
-    home();
+    if (isvisitedPage) {
+      if (isvisitedPage === "home") {
+        const home = Home($app);
+        home();
+      } else {
+        const schedule = Schedule($app);
+        schedule();
+      }
+    } else {
+      const home = Home($app);
+      home();
+    }
 
     navItems[0].addEventListener("click", () => {
       superEventHandler.onClickHome();
@@ -50,12 +62,14 @@ const App = () => {
       $app.innerHTML = "";
       const home = Home($app);
       home();
+      localStorage.setItem("visited", "home");
     },
     onClickScheduler: () => {
       const $app = document.querySelector("#app");
       $app.innerHTML = "";
       const schedule = Schedule($app);
       schedule();
+      localStorage.setItem("visited", "schedule");
     },
     onClickReset: () => {
       localStorage.removeItem("username");
