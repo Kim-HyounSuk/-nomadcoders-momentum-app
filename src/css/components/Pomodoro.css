@@ -64,3 +64,8 @@
   animation: blink 1s linear infinite;
   line-height: 1.5;
 }
+
+.pomo_btn--start.hidden,
+.pomo_btn--stop.hidden {
+  display: none;
+}
