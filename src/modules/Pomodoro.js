@@ -69,9 +69,14 @@ const Pomodoro = ($container) => {
     timerId = undefined;
     const pomoBtnStart = $container.querySelector(".pomo_btn--start");
     const pomoBtnStop = $container.querySelector(".pomo_btn--stop");
+    const pomoTimerItems = $container.querySelectorAll(".pomo-timer span");
 
     pomoBtnStart.classList.remove("hidden");
     pomoBtnStop.classList.add("hidden");
+
+    pomoTimerItems[0].innerText = "00";
+    pomoTimerItems[1].classList.remove("active");
+    pomoTimerItems[2].innerText = "00";
   };
 
   const notiStart = () => {
@@ -102,11 +107,6 @@ const Pomodoro = ($container) => {
     },
     onClickStop: () => {
       endPomo();
-      clearInterval(timerId);
-      const pomoTimerItems = $container.querySelectorAll(".pomo-timer span");
-      pomoTimerItems[0].innerText = "00";
-      pomoTimerItems[1].classList.remove("active");
-      pomoTimerItems[2].innerText = "00";
     },
   };
 
